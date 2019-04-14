@@ -12,6 +12,7 @@ print("pandas version: {}".format(pd.__version__))
 print("numpy version: {}".format(np.__version__))
 print(f"seaborn version: {sns.__version__}")
 
+filename = "example"
 
 #%% [markdown]
 # ## Plots needed
@@ -34,9 +35,17 @@ print(f"seaborn version: {sns.__version__}")
 
 
 #%%
-filename = "example"
-df = pd.read_csv(f"data/{filename}.csv", index_col=False)
+x = np.random.randint(0, 1000, 100)
+y = np.random.randint(50, 100, 100)
+data = np.vstack((x, y))
+
+#%%
+df = pd.DataFrame(data=data.T, columns=["x", "y"])
 df
+
+#%%
+# df = pd.read_csv(f"data/{filename}.csv", index_col=False)
+# df
 
 #%%
 plt.figure(figsize=(8, 5))
